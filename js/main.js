@@ -11,7 +11,10 @@ const radioType = document.querySelectorAll('input[name="type"]');
 const radioBuilding = document.querySelectorAll('input[name="building"]');
 const radioRooms = document.querySelectorAll('input[name="rooms"]');
 
-
+// Находим чекбоксы
+const ceilings = document.querySelectorAll('input[name="ceiling"]');
+const walls = document.querySelectorAll('input[name="walls"]');
+const floor = document.querySelectorAll('input[name="floor"]');
 
 // Базовая цена
 const basePrice = 6000;
@@ -29,7 +32,42 @@ for (const radio of radioType) {
   // parseFloat - вернет не целое число, а 1,5; 1,3
        totalPrice = totalPrice * parseFloat(radio.value);
   }
-}
+  }
+
+  for (const radio of radioBuilding) {
+    if (radio.checked === true) {
+    // parseFloat - вернет не целое число, а 1,5; 1,3
+         totalPrice = totalPrice * parseFloat(radio.value);
+    }
+  }
+
+  for (const radio of radioRooms) {
+    if (radio.checked === true) {
+    // parseFloat - вернет не целое число, а 1,5; 1,3
+         totalPrice = totalPrice * parseFloat(radio.value);
+    }
+  }
+
+  for (const radio of ceilings) {
+    if (radio.checked === true) {
+    // parseFloat - вернет не целое число, а 1,5; 1,3
+    totalPrice = totalPrice + parseFloat(radio.value) * parseInt(squareInput.value);
+    }
+  }
+
+  for (const radio of walls) {
+    if (radio.checked === true) {
+    // parseFloat - вернет не целое число, а 1,5; 1,3
+    totalPrice = totalPrice + parseFloat(radio.value) * parseInt(squareInput.value);
+    }
+  }
+
+  for (const radio of floor) {
+    if (radio.checked === true) {
+    // parseFloat - вернет не целое число, а 1,5; 1,3
+    totalPrice = totalPrice + parseFloat(radio.value) * parseInt(squareInput.value);
+    }
+  }
 
   // Создаем переменную которая отформатирует цифры поставив пробелы
   const formatter = new Intl.NumberFormat('ru');
